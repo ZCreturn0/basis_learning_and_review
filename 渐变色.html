@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .card{ 
+            border-radius: 20px;
+            width: 300px;
+            height: 400px;
+            background:linear-gradient(35deg,#cff,#fcc);
+        }
+        .card1{
+            border-radius: 20px;
+            width: 300px;
+            height: 400px;
+            /* 方向,颜色[范围],颜色[范围],颜色[范围]... */
+            background:linear-gradient(35deg,#cff,#fcc 50%,#612);
+        }
+        .cross{
+            border-radius: 20px;
+            width: 300px;
+            height: 400px;
+            background: repeating-linear-gradient(
+                45deg,
+                yellow 0px,
+                yellow 40px,
+                black 40px,
+                black 80px
+            );
+        }
+        .container{
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card"></div>
+        <div class="card1"></div>
+        <div class="cross"></div>
+    </div>
+</body>
+
+</html>
