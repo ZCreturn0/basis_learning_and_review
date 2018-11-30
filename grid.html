@@ -24,10 +24,11 @@
                 /* justify-items: center; */
                 /* align-items: center; */
                 /* 划分区域 */
-                grid-template-areas: 
+                /* 与itemgrid-area配合使用 */
+                /* grid-template-areas: 
                                     'a a a'
                                     'b b b'
-                                    'c c d';
+                                    'c c d'; */
 
             }
             .d1{
@@ -51,8 +52,11 @@
             }
             .d5{
                 background:PaleGreen;
-                grid-area: c;
+                /* 与grid-template-areas配合使用 */
+                /* grid-area: c; */
                 /* align-self: end; */
+                /* 单独使用   开始row line/开始 column line/结束row line/结束column line */
+                grid-area: 3/1/4/4;
             }
         </style>
     </head>
