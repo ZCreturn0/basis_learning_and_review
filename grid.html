@@ -23,29 +23,36 @@
                 /* 所有item居中 */
                 /* justify-items: center; */
                 /* align-items: center; */
+                /* 划分区域 */
+                grid-template-areas: 
+                                    'a a a'
+                                    'b b b'
+                                    'c c d';
+
             }
             .d1{
                 background:LightSkyBlue;
                 /* d1宽度为1--4网格线 */
                 /* grid-column-start: 1;
                 grid-column-end: 4; */
-                grid-column: 1 / 4;
+                /* grid-column: 1 / 4; */
             }
             .d2{
                 background:LightSalmon;
-                grid-row: 2 / 4;
+                /* grid-row: 2 / 4; */
             }
             .d3{
                 background:PaleTurquoise;
-                grid-column: 2 / 4;
+                /* grid-column: 2 / 4; */
             }
             .d4{
                 background:LightPink;
-                justify-self: center;
+                /* justify-self: center; */
             }
             .d5{
                 background:PaleGreen;
-                align-self: end;
+                grid-area: c;
+                /* align-self: end; */
             }
         </style>
     </head>
