@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-family: 'Raleway', Helvetica, sans-serif;
+        }
+        #container{
+            width: 100%;
+            background: #a9d7d1;
+            text-align: center;
+            padding: 10px;
+        }
+        #title{
+            padding: 0.67em;
+        }
+        #form-area{
+            width: 70%;
+            max-width: 900px;
+            border-radius: 4px;
+            background: #eee;
+            margin: 0 auto;
+        }
+        #description{
+            font-size: 16px;
+            padding: 2em;
+        }
+        #survey-form{
+            width: 100%;
+        }
+        .form-items{
+            width: 100%;
+        }
+        .item-label{
+            text-align: right;
+            display: inline-block;
+            width: 40%;
+        }
+        .item-input{
+            text-align: left;
+            display: inline-block;
+            width: 48%;
+        }
+        input[placeholder]{
+            height: 20px;
+            width: 280px;
+            padding: 5px;
+            margin: 10px;
+            border: 1px solid #c0c0c0;
+            border-radius: 2px;
+        }
+        select{
+            height: 35px;
+            width: 140px;
+            padding: 5px;
+            margin: 10px;
+            margin-top: 15px;
+            border: 1px solid #c0c0c0;
+            border-radius: 2px;
+        }
+        ul,ol{
+            list-style-type: none;
+        }
+        .radio{
+            float: left;
+        }
+        .item{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 id="title">Survey Form</h1>
+        <div id="form-area">
+            <div id="description">Let us know how we can improve freeCodeCamp</div>
+            <form action="#" id="survey-form">
+                <div class="form-items">
+                    <div class="item-label">* Name:</div>
+                    <div class="item-input"><input type="text" required id="name" placeholder="Enter your name"></div>
+                </div>
+                <div class="form-items">
+                    <div class="item-label">* Email:</div>
+                    <div class="item-input"><input type="email" required id="email" placeholder="Enter your Email"></div>
+                </div>
+                <div class="form-items">
+                    <div class="item-label">* Age:</div>
+                    <div class="item-input"><input type="number" required id="age" placeholder="Age" min="0" max="200"></div>
+                </div>
+                <div class="form-items">
+                    <div class="item-label">Which option best describes your current role?</div>
+                    <div class="item-input">
+                        <select id="describes">
+                            <option value="0" disabled>Select an option</option>
+                            <option value="Student">Student</option>
+                            <option value="job">Full Time Job</option>
+                            <option value="learner">Full Time Learner</option>
+                            <option value="preferNo">Prefer not to say</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-items">
+                    <div class="item-label" style="vertical-align:top;">* How likely is that you would recommend freeCodeCamp to a friend?</div>
+                    <div class="item-input">
+                        <ul>
+                            <li class="item">
+                                <label>Definitely<input type="radio" name="recommend" id="recommend1" class="radio"></label>
+                            </li>
+                            <li class="item">
+                                <label>Maybe<input type="radio" name="recommend" id="recommend2" class="radio"></label>
+                            </li>
+                            <li class="item">
+                                <label>Not sure<input type="radio" name="recommend" id="recommend2" class="radio"></label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
