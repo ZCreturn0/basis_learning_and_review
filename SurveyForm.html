@@ -101,24 +101,24 @@
     <div id="container">
         <h1 id="title">Survey Form</h1>
         <div id="form-area">
-            <div id="description">Let us know how we can improve freeCodeCamp</div>
+            <p id="description">Let us know how we can improve freeCodeCamp</p>
             <form action="#" id="survey-form">
                 <div class="form-items">
-                    <div class="item-label">* Name:</div>
+                    <label class="item-label" id="name-label">* Name:</label>
                     <div class="item-input"><input type="text" required id="name" placeholder="Enter your name"></div>
                 </div>
                 <div class="form-items">
-                    <div class="item-label">* Email:</div>
+                    <label class="item-label" id="email-label">* Email:</label>
                     <div class="item-input"><input type="email" required id="email" placeholder="Enter your Email"></div>
                 </div>
                 <div class="form-items">
-                    <div class="item-label">* Age:</div>
-                    <div class="item-input"><input type="number" required id="age" placeholder="Age" min="0" max="200"></div>
+                    <label class="item-label" id="number-label">* Age:</label>
+                    <div class="item-input"><input type="number" required id="number" placeholder="Age" min="0" max="200"></div>
                 </div>
                 <div class="form-items">
                     <div class="item-label">Which option best describes your current role?</div>
                     <div class="item-input">
-                        <select id="describes">
+                        <select id="dropdown">
                             <option value="0" disabled>Select an option</option>
                             <option value="Student">Student</option>
                             <option value="job">Full Time Job</option>
@@ -129,17 +129,18 @@
                     </div>
                 </div>
                 <div class="form-items">
-                    <div class="item-label" style="vertical-align:top;">* How likely is that you would recommend freeCodeCamp to a friend?</div>
+                    <div class="item-label" style="vertical-align:top;">* How likely is that you would recommend
+                        freeCodeCamp to a friend?</div>
                     <div class="item-input">
                         <ul>
                             <li class="item">
-                                <label>Definitely<input type="radio" name="recommend" id="recommend1" class="radio"></label>
+                                <label>Definitely<input type="radio" name="recommend" id="recommend1" class="radio" value="1"></label>
                             </li>
                             <li class="item">
-                                <label>Maybe<input type="radio" name="recommend" id="recommend2" class="radio"></label>
+                                <label>Maybe<input type="radio" name="recommend" id="recommend2" class="radio" value="2"></label>
                             </li>
                             <li class="item">
-                                <label>Not sure<input type="radio" name="recommend" id="recommend2" class="radio"></label>
+                                <label>Not sure<input type="radio" name="recommend" id="recommend2" class="radio" value="3"></label>
                             </li>
                         </ul>
                     </div>
@@ -158,41 +159,49 @@
                 </div>
                 <div class="form-items">
                     <div class="item-label" style="vertical-align:top;">Things that should be improved in the future
-                    (Check all that apply):</div>
+                        (Check all that apply):</div>
                     <div class="item-input">
                         <ul>
                             <li class="item">
-                                <label>Front-end Projects<input type="checkbox" name="improved" id="improved1" class="checkbox"></label>
+                                <label>Front-end Projects<input type="checkbox" name="improved" id="improved1" class="checkbox"
+                                        value="1"></label>
                             </li>
                             <li class="item">
-                                <label>Back-end Projects<input type="checkbox" name="improved" id="improved2" class="checkbox"></label>
+                                <label>Back-end Projects<input type="checkbox" name="improved" id="improved2" class="checkbox"
+                                        value="2"></label>
                             </li>
                             <li class="item">
-                                <label>Data Visualization<input type="checkbox" name="improved" id="improved3" class="checkbox"></label>
+                                <label>Data Visualization<input type="checkbox" name="improved" id="improved3" class="checkbox"
+                                        value="3"></label>
                             </li>
                             <li class="item">
-                                <label>Challenges<input type="checkbox" name="improved" id="improved4" class="checkbox"></label>
+                                <label>Challenges<input type="checkbox" name="improved" id="improved4" class="checkbox"
+                                        value="4"></label>
                             </li>
                             <li class="item">
-                                <label>Open Source Community<input type="checkbox" name="improved" id="improved5" class="checkbox"></label>
+                                <label>Open Source Community<input type="checkbox" name="improved" id="improved5" class="checkbox"
+                                        value="5"></label>
                             </li>
                             <li class="item">
-                                <label>Gitter help rooms<input type="checkbox" name="improved" id="improved6" class="checkbox"></label>
+                                <label>Gitter help rooms<input type="checkbox" name="improved" id="improved6" class="checkbox"
+                                        value="6"></label>
                             </li>
                             <li class="item">
-                                <label>Videos<input type="checkbox" name="improved" id="improved7" class="checkbox"></label>
+                                <label>Videos<input type="checkbox" name="improved" id="improved7" class="checkbox" value="7"></label>
                             </li>
                             <li class="item">
-                                <label>City Meetups<input type="checkbox" name="improved" id="improved8" class="checkbox"></label>
+                                <label>City Meetups<input type="checkbox" name="improved" id="improved8" class="checkbox"
+                                        value="8"></label>
                             </li>
                             <li class="item">
-                                <label>Wiki<input type="checkbox" name="improved" id="improved9" class="checkbox"></label>
+                                <label>Wiki<input type="checkbox" name="improved" id="improved9" class="checkbox" value="9"></label>
                             </li>
                             <li class="item">
-                                <label>Forum<input type="checkbox" name="improved" id="improved10" class="checkbox"></label>
+                                <label>Forum<input type="checkbox" name="improved" id="improved10" class="checkbox" value="10"></label>
                             </li>
                             <li class="item">
-                                <label>Additional Courses<input type="checkbox" name="improved" id="improved11" class="checkbox"></label>
+                                <label>Additional Courses<input type="checkbox" name="improved" id="improved11" class="checkbox"
+                                        value="11"></label>
                             </li>
                         </ul>
                     </div>
@@ -202,7 +211,7 @@
                     <div class="item-input"><textarea id="suggests"></textarea></div>
                 </div>
                 <div class="form-items">
-                    <input type="submit" class="submit">
+                    <button type="submit" id="submit">
                 </div>
             </form>
         </div>
