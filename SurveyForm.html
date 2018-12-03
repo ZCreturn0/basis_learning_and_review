@@ -28,6 +28,7 @@
             border-radius: 4px;
             background: #eee;
             margin: 0 auto;
+            padding: 20px;
         }
         #description{
             font-size: 16px;
@@ -38,6 +39,7 @@
         }
         .form-items{
             width: 100%;
+            margin-top: 10px;
         }
         .item-label{
             text-align: right;
@@ -69,11 +71,29 @@
         ul,ol{
             list-style-type: none;
         }
-        .radio{
+        .radio,.checkbox{
             float: left;
         }
         .item{
             padding: 10px;
+        }
+        #suggests{
+            height: 50px;
+            width: 280px;
+            padding: 5px;
+            margin: 10px;
+            border: 1px solid #c0c0c0;
+            border-radius: 2px;
+        }
+        .submit{
+            background-color: #59ace0;
+            border-radius: 4px;
+            color: white;
+            font-size: 1em;
+            height: 40px;
+            width: 96px;
+            margin: 10px;
+            border: 0px solid;
         }
     </style>
 </head>
@@ -124,8 +144,69 @@
                         </ul>
                     </div>
                 </div>
+                <div class="form-items">
+                    <div class="item-label">What do you like most in FCC:</div>
+                    <div class="item-input">
+                        <select id="like">
+                            <option value="0" disabled selected>Select an option</option>
+                            <option value="challenges">Challenges</option>
+                            <option value="projects">Projects</option>
+                            <option value="community">Community</option>
+                            <option value="openSource">Open Source</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-items">
+                    <div class="item-label" style="vertical-align:top;">Things that should be improved in the future
+                    (Check all that apply):</div>
+                    <div class="item-input">
+                        <ul>
+                            <li class="item">
+                                <label>Front-end Projects<input type="checkbox" name="improved" id="improved1" class="checkbox"></label>
+                            </li>
+                            <li class="item">
+                                <label>Back-end Projects<input type="checkbox" name="improved" id="improved2" class="checkbox"></label>
+                            </li>
+                            <li class="item">
+                                <label>Data Visualization<input type="checkbox" name="improved" id="improved3" class="checkbox"></label>
+                            </li>
+                            <li class="item">
+                                <label>Challenges<input type="checkbox" name="improved" id="improved4" class="checkbox"></label>
+                            </li>
+                            <li class="item">
+                                <label>Open Source Community<input type="checkbox" name="improved" id="improved5" class="checkbox"></label>
+                            </li>
+                            <li class="item">
+                                <label>Gitter help rooms<input type="checkbox" name="improved" id="improved6" class="checkbox"></label>
+                            </li>
+                            <li class="item">
+                                <label>Videos<input type="checkbox" name="improved" id="improved7" class="checkbox"></label>
+                            </li>
+                            <li class="item">
+                                <label>City Meetups<input type="checkbox" name="improved" id="improved8" class="checkbox"></label>
+                            </li>
+                            <li class="item">
+                                <label>Wiki<input type="checkbox" name="improved" id="improved9" class="checkbox"></label>
+                            </li>
+                            <li class="item">
+                                <label>Forum<input type="checkbox" name="improved" id="improved10" class="checkbox"></label>
+                            </li>
+                            <li class="item">
+                                <label>Additional Courses<input type="checkbox" name="improved" id="improved11" class="checkbox"></label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-items">
+                    <div class="item-label" style="vertical-align:top;">Any Comments or Suggestions?</div>
+                    <div class="item-input"><textarea id="suggests"></textarea></div>
+                </div>
+                <div class="form-items">
+                    <input type="submit" class="submit">
+                </div>
             </form>
         </div>
     </div>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
 </html>
