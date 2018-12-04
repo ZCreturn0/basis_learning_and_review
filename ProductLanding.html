@@ -105,6 +105,44 @@
                 width:80%;
             }
         }
+        #pricing{
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .card{
+            width: 32%;
+            text-align: center;
+            border: 1px solid #000;
+            border-radius: 3px;
+        }
+        .text li{
+            list-style-type: none;
+            padding: 5px 0;
+        }
+        .card-title{
+            background-color: #ddd;
+            padding: 15px 0;
+            font-weight: 700;
+        }
+        .card-price{
+            padding: 15px 0;
+            font-weight: 700;
+            font-size: 22px;
+        }
+        .btn{
+            cursor: pointer;
+            transition: background-color 1s;
+            border: 0;
+            margin: 15px 0;
+            background-color: #f1c40f;
+            font-weight: 400;
+            padding: 0 20px;
+            height: 40px;
+        }
+        .btn:hover{
+            background-color: orange;
+        }
     </style>
 </head>
 <body>
@@ -124,7 +162,7 @@
         <h2>Handcrafted, home-made masterpieces</h2>
         <form action="https://www.freecodecamp.com/email-submit" id="form">
             <input type="email" name="email" id="email" placeholder="Enter your email address" required/>
-            <input id="submit" type="submit" value="Get Started" class="btn">
+            <button id="submit" type="submit" class="btn">Get Started</button>
         </form>
     </section>
     <div id="container">
@@ -158,7 +196,39 @@
                 frameborder="0" allowfullscreen=""></iframe>
         </section>
         <div id="pricing">
-
+            <div class="card">
+                <div class="card-title">TENOR TROMBONE</div>
+                <div class="card-price">$600</div>
+                <ul class="text">
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum dolor.</li>
+                    <li>Lorem ipsum.</li>
+                </ul>
+                <button class="btn">SELECT</button>
+            </div>
+            <div class="card">
+                <div class="card-title">BASS TROMBONE</div>
+                <div class="card-price">$900</div>
+                <ul class="text">
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum dolor.</li>
+                    <li>Lorem ipsum.</li>
+                </ul>
+                <button class="btn">SELECT</button>
+            </div>
+            <div class="card">
+                <div class="card-title">VALVE TROMBONE</div>
+                <div class="card-price">$1200</div>
+                <ul class="text">
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum dolor.</li>
+                    <li>Lorem ipsum.</li>
+                </ul>
+                <button class="btn">SELECT</button>
+            </div>
         </div>
     </div>
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
