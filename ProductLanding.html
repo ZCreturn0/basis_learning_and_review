@@ -24,6 +24,10 @@
             align-items: center;
             width: 90%;
             margin: 0 auto;
+            position: fixed;
+            top:0;
+            left: 10%;
+            background: #eee;
         }
         #header-img{
             width: 100%;
@@ -47,6 +51,7 @@
         }
         #title{
             text-align: center;
+            margin-top: 70px;
         }
         #title h2{
             padding: 20px 0;
@@ -143,6 +148,28 @@
         .btn:hover{
             background-color: orange;
         }
+        footer{
+            text-align: right;
+            background: #ddd;
+            padding: 20px 20px;
+        }
+        li{
+            list-style-type: none;
+        }
+        footer ul{
+            display: flex;
+            justify-content: flex-end;
+        }
+        a{
+            text-decoration: none;
+            padding: 0 10px;
+            color: #000;
+        }
+        footer span{
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #444;
+        }
     </style>
 </head>
 <body>
@@ -162,7 +189,7 @@
         <h2>Handcrafted, home-made masterpieces</h2>
         <form action="https://www.freecodecamp.com/email-submit" id="form">
             <input type="email" name="email" id="email" placeholder="Enter your email address" required/>
-            <button id="submit" type="submit" class="btn">Get Started</button>
+            <input id="submit" type="submit" value="Get Started" class="btn">
         </form>
     </section>
     <div id="container">
@@ -230,6 +257,14 @@
                 <button class="btn">SELECT</button>
             </div>
         </div>
+        <footer>
+            <ul>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <span>Copyright 2016, Original Trombones</span>
+        </footer>
     </div>
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
