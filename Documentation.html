@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        #navbar{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 290px;
+            height: 100%;
+            font-size: 14px;
+            border-right: 3px solid rgba(0,22,22,0.4);
+        }
+        #main-doc{
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: calc(100% - 300px);
+        }
+        #navbar h2{
+            padding: 20px 10px;
+            text-align: center;
+        }
+        #links{
+            width: 100%;
+            margin: 0 auto;
+        }
+        ul#links li{
+            list-style-type: none;
+            padding: 14px 5% 14px 15%;
+            border-top: 1px solid #4d4e53;
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <h2>JS Documentation</h2>
+        <ul id="links">
+            <li><a href="#">Introduction</a></li>
+            <li><a href="#">What you should already know</a></li>
+            <li><a href="#">JavaScript and Java</a></li>
+            <li><a href="#">Hello world</a></li>
+            <li><a href="#">Variables</a></li>
+            <li><a href="#">Declaring variables</a></li>
+            <li><a href="#">Variable scope</a></li>
+            <li><a href="#">Global variables</a></li>
+            <li><a href="#">Constants</a></li>
+            <li><a href="#">Data types</a></li>
+            <li><a href="#">if...else statement</a></li>
+            <li><a href="#">while statement</a></li>
+            <li><a href="#">Function declarations</a></li>
+            <li><a href="#">Reference</a></li>
+        </ul>
+    </nav>
+    <main id="main-doc">
+
+    </main>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
