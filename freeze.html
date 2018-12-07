@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const OBJ1 = {
+            name:'aaa',
+            age:12
+        }
+        // 属性可变
+        console.log(OBJ1);
+        OBJ1.name = 'bbb';
+        console.log(OBJ1);
+        const OBJ2 = {
+            name: 'bbb',
+            age: 12
+        }
+        console.log(OBJ2);
+        Object.freeze(OBJ2);
+        // 忽略
+        OBJ2.name = 'ccc';
+        console.log(OBJ2);
+    </script>
+</body>
+</html>
