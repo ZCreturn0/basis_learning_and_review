@@ -14,23 +14,26 @@
                 code += 13;
             }
             else if(code >= 78 && code <= 90){
-                code = 65 + (code - 90 + 13); 
+                code = 65 + (code - 90 + 12); 
             }
             else if(code >= 110 && code <= 122){
-                code = 97 + (code - 122 + 13); 
+                code = 97 + (code - 122 + 12); 
             }
             return String.fromCharCode(code);
         }
         function rot13(str) { // LBH QVQ VG!
             let arr = str.split('');
+            let result = "";
             let reg = /[A-Za-z]/;
             for(let i of arr){
                 if(reg.test(i)){
-                    console.log(decode(i));
+                    result += decode(i);
+                }
+                else{
+                    result += i;
                 }
             }
-            console.log(arr);
-            return str;
+            return result;
         }
         console.log(rot13("SERR PBQR PNZC"));
     </script>
