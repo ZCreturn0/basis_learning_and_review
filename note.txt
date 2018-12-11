@@ -1,2 +1,13 @@
-require()  导入整个模块
+﻿require()  导入整个模块
 import  导入需要的模块
+
+
+splice()会改变原数组,返回截取的数组
+arr.splice(2,1,'aaa')       把'aaa'插入到index2后面1个位置
+
+slice()截取不会改变原数组,[start,end)
+
+prototype属性所有实例共享
+
+Object.keys()           返回对象内部属性
+for...in                返回对象自身属性(包含prototype上的属性)
