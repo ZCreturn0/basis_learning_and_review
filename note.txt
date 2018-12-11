@@ -20,3 +20,7 @@ Bird.prototype = {
     constructor:Bird,
     ...
 }
+
+Bird.prototype.isPrototypeOf(bird);         isPrototypeOf原型是实例的原型
+
+Object.create(Bird.prototype);              传入原型
