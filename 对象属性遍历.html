@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            function Obj() {
+                this.aaa = 'aaa';
+                this.bbb = 'bbb';
+            }
+            Obj.prototype.ccc = 'ccc';
+            Obj.prototype.ddd = 'ddd';
+            let o = new Obj();
+            console.log(Object.keys(o));
+            for(let item in o){
+                console.log(item);
+            }
+        </script>
+    </body>
+
+</html>
