@@ -9,5 +9,14 @@ slice()截取不会改变原数组,[start,end)
 
 prototype属性所有实例共享
 
-Object.keys()           返回对象内部属性
+Object.keys()           返回对象内部属性        =>      hasOwnProperty
 for...in                返回对象自身属性(包含prototype上的属性)
+
+Bird.prototype = {...}
+对象prototype指向一个新对象,相当于继承了这个新对象的属性,但constructor属性变化了:
+bird.constructor            // undefined
+改进方法:
+Bird.prototype = {
+    constructor:Bird,
+    ...
+}
