@@ -29,7 +29,13 @@
                                     'a a a'
                                     'b b b'
                                     'c c d'; */
-
+                /* grid-template-columns: repeat(2, 1fr 50px) 20px;   ===   grid-template-columns: 1fr 50px 1fr 50px 20px; */
+                /* 最大最小值函数 */
+                grid-template-columns: 100px minmax(50px, 200px);
+                /* 均分,最大60px */
+                grid-template-columns: repeat( auto-fill, minmax(60px, 1fr));
+                /* 最小60px,均分 */
+                grid-template-columns: repeat( auto-fit, minmax(60px, 1fr));
             }
             .d1{
                 background:LightSkyBlue;
