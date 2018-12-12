@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            function mod(y){
+                return function(x){
+                    return x % y;
+                };
+            }
+            console.log(mod(3)(10));
+            let mod7 = mod(7);
+            console.log(mod7(10));
+
+            function nary(n) {
+                return function(num){
+                    return num.toString(n);
+                }
+            }
+            console.log(nary(2)(10));
+            let bin = nary(2);
+            let hex = nary(16);
+            console.log(bin(15));
+            console.log(hex(100));
+        </script>
+    </body>
+
+</html>
