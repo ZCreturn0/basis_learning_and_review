@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            function gcd(a,b) {             // 最大公约数
+                if(b == 0){
+                    return a;
+                }
+                let r = a % b;
+                return gcd(b,r);
+            }
+            function scm(a,b) {             // 最小公倍数
+                return (a*b)/gcd(a,b);
+            }
+            function smallestCommons(arr) {
+                let min = Math.min(...arr);
+                let max = Math.max(...arr);
+                let list = [];
+                for(let i=min;i<=max;i++){
+                    list.push(i);
+                }
+                let result = list.reduce(scm);
+                return result;
+            }
+
+            console.log(smallestCommons([10, 2]));
+        </script>
+    </body>
+
+</html>
