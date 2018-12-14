@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            function isPrime(num) {
+                for(let i=2;i<num;i++){
+                    if(num % i == 0){
+                        return false;
+                    }
+                }
+                return true;
+            }
+            function sumPrimes(num) {
+                let sum = 0;
+                let i = 2;
+                while (i <= num) {
+                    if(isPrime(i)){
+                        sum += i;
+                    }
+                    i++;
+                }
+                return sum;
+            }
+
+            console.log(sumPrimes(10));
+        </script>
+    </body>
+
+</html>
