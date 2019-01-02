@@ -11,6 +11,8 @@
 
     <body>
         <div id="app">
+            <!-- v-model :双向绑定    :value :相当于赋值 -->
+            <input type="text" v-model="text">
             <input :value="text" type="button" @click="sayText()">
         </div>
         <script>
