@@ -7,6 +7,11 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <script src="https://unpkg.com/vue"></script>
         <title>Document</title>
+        <style>
+            .text-red{
+                color: red;
+            }
+        </style>
     </head>
 
     <body>
@@ -15,6 +20,7 @@
             <input type="text" v-model="text" v-show="show">
             <input :value="text" type="button" @click="sayText()">
             <input value="显示/隐藏" type="button" @click="toggleShow()">
+            <p v-if="text == 'Hello World'">666</p>
         </div>
         <script>
             new Vue({
