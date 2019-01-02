@@ -12,18 +12,23 @@
     <body>
         <div id="app">
             <!-- v-model :双向绑定    :value :相当于赋值 -->
-            <input type="text" v-model="text">
+            <input type="text" v-model="text" v-show="show">
             <input :value="text" type="button" @click="sayText()">
+            <input value="显示/隐藏" type="button" @click="toggleShow()">
         </div>
         <script>
             new Vue({
                 el: '#app',
                 data: {
-                    text: 'Hello World'
+                    text: 'Hello World',
+                    show: true
                 },
                 methods: {
                     sayText(){
                         alert(this.text);
+                    },
+                    toggleShow(){
+                        this.show = !this.show;
                     }
                 }
             });
