@@ -10,12 +10,19 @@
     </head>
 
     <body>
-        <div id="app">{{text}}</div>
+        <div id="app">
+            <input :value="text" type="button" @click="sayText()">
+        </div>
         <script>
             new Vue({
                 el: '#app',
                 data: {
                     text: 'Hello World'
+                },
+                methods: {
+                    sayText(){
+                        alert(this.text);
+                    }
                 }
             });
         </script>
