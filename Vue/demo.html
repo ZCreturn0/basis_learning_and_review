@@ -11,6 +11,12 @@
             .text-red{
                 color: red;
             }
+            .text-green{
+                color: green;
+            }
+            .bold{
+                font-weight: bold;
+            }
         </style>
     </head>
 
@@ -24,6 +30,9 @@
             <ul>
                 <li v-for="(val,key) in list">key:{{key}},val:{{val}}</li>
             </ul>
+            <p :class="[textColor,{bold:boldStatus}]">{{text}}</p>
+            <input value="红/绿" type="button" @click="toggleColor()">
+            <input value="加粗" type="button" @click="toggleBold()">
         </div>
         <script>
             new Vue({
@@ -31,7 +40,9 @@
                 data: {
                     text: 'Hello World',
                     show: true,
-                    list:[{name:'aaa',age:12}, { name: 'bbb', age: 13 }, { name: 'ccc', age: 14 }]
+                    list:[{name:'aaa',age:12}, { name: 'bbb', age: 13 }, { name: 'ccc', age: 14 }],
+                    textColor:'text-red',
+                    boldStatus:false
                 },
                 methods: {
                     sayText(){
@@ -39,6 +50,12 @@
                     },
                     toggleShow(){
                         this.show = !this.show;
+                    },
+                    toggleColor(){
+                        this.textColor = this.textColor == 'text-red' ? 'text-green' : 'text-red';
+                    },
+                    toggleBold(){
+                        this.boldStatus = !this.boldStatus;
                     }
                 }
             });
