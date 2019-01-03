@@ -21,13 +21,17 @@
             <input :value="text" type="button" @click="sayText()">
             <input value="显示/隐藏" type="button" @click="toggleShow()">
             <p v-if="text == 'Hello World'">666</p>
+            <ul>
+                <li v-for="(val,key) in list">key:{{key}},val:{{val}}</li>
+            </ul>
         </div>
         <script>
             new Vue({
                 el: '#app',
                 data: {
                     text: 'Hello World',
-                    show: true
+                    show: true,
+                    list:[{name:'aaa',age:12}, { name: 'bbb', age: 13 }, { name: 'ccc', age: 14 }]
                 },
                 methods: {
                     sayText(){
