@@ -17,6 +17,9 @@
             .bold{
                 font-weight: bold;
             }
+            .italic{
+                font-style: italic;
+            }
         </style>
     </head>
 
@@ -30,11 +33,16 @@
             <ul>
                 <li v-for="(val,key) in list">key:{{key}},val:{{val}}</li>
             </ul>
-            <p :class="[textColor,{bold:boldStatus}]">{{text}}</p>
+            <p :class="[textColor,{bold:boldStatus},{italic:italicStatus}]">{{text}}</p>
             <input value="红/绿" type="button" @click="toggleColor()">
             <input value="加粗" type="button" @click="toggleBold()">
         </div>
         <script>
+            // 自定义按键
+            Vue.config.keyCodes = {
+                'test-me': 38,
+                'test':[22,33]
+            }
             new Vue({
                 el: '#app',
                 data: {
@@ -42,7 +50,8 @@
                     show: true,
                     list:[{name:'aaa',age:12}, { name: 'bbb', age: 13 }, { name: 'ccc', age: 14 }],
                     textColor:'text-red',
-                    boldStatus:false
+                    boldStatus:false,
+                    italicStatus:false
                 },
                 methods: {
                     sayText(){
