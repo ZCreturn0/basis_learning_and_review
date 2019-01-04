@@ -66,6 +66,12 @@
                     toggleBold(){
                         this.boldStatus = !this.boldStatus;
                     }
+                },
+                watch:{
+                    text(newVal,oldVal){
+                        console.log('new:'+ newVal);
+                        console.log('old:' + oldVal);
+                    }
                 }
             });
         </script>
