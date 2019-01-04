@@ -36,6 +36,9 @@
             <p :class="[textColor,{bold:boldStatus},{italic:italicStatus}]">{{text}}</p>
             <input value="红/绿" type="button" @click="toggleColor()">
             <input value="加粗" type="button" @click="toggleBold()">
+            <!-- v-html不安全,不建议使用 -->
+            <div v-html="html"></div>
+            <div v-text="html"></div>
         </div>
         <script>
             // 自定义按键
@@ -51,7 +54,8 @@
                     list:[{name:'aaa',age:12}, { name: 'bbb', age: 13 }, { name: 'ccc', age: 14 }],
                     textColor:'text-red',
                     boldStatus:false,
-                    italicStatus:false
+                    italicStatus:false,
+                    html:'<h3>aaaaaaaaaa</h3>'
                 },
                 methods: {
                     sayText(){
