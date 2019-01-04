@@ -39,6 +39,8 @@
             <!-- v-html不安全,不建议使用 -->
             <div v-html="html"></div>
             <div v-text="html"></div>
+            <div>{{text | LowerCase}}</div>
+            <div>{{text | LowerCase(html)}}</div>
         </div>
         <script>
             // 自定义按键
@@ -75,6 +77,11 @@
                     text(newVal,oldVal){
                         console.log('new:'+ newVal);
                         console.log('old:' + oldVal);
+                    }
+                },
+                filters:{
+                    LowerCase(text, html){
+                        return text.toLowerCase() + html;
                     }
                 }
             });
