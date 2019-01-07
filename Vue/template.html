@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue"></script>
+        <title>Document</title>
+        <style>
+            .text-red{
+                color: red;
+            }
+            .text-green{
+                color: green;
+            }
+            .bold{
+                font-weight: bold;
+            }
+            .italic{
+                font-style: italic;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <my_title></my_title>
+            <my_title2></my_title2>
+            <my_title3></my_title3>
+            <my_title4></my_title4>
+            <my_title5></my_title5>
+            <my_title6></my_title6>
+        </div>
+        <script type="x-template" id="my_title5">
+            <h2>title5</h2>
+        </script>
+        <template id="my_title6">
+            <h2>title6</h2>
+        </template>
+        <script>
+            // 2
+            // 用Vue注册
+            Vue.component('my_title2',{
+                template: '<h2>title2</h2>'
+            });
+
+            // 3
+            // extend扩展模版
+            let my_title3 = Vue.extend({
+                template: '<h2>title3</h2>'
+            });
+            // 挂载到Vue component上
+            Vue.component('my_title3', my_title3);
+
+            // 4
+            let my_title4 = Vue.extend({
+                template: '<h2>title4</h2>'
+            });
+
+            new Vue({
+                el: '#app',
+                data: {
+                    
+                },
+                methods: {
+                    
+                },
+                // 1
+                // 用components扩展
+                components:{
+                    my_title:{
+                        template:'<h2>title</h2>'
+                    },
+                    // 4
+                    // 挂载到Vue components上
+                    my_title4,
+                    // 5
+                    // js模版
+                    my_title5:{
+                        template:'#my_title5'
+                    },
+                    // 6
+                    // template模版
+                    my_title6:{
+                        template: '#my_title6'
+                    }
+                }
+            });
+        </script>
+    </body>
+
+</html>
