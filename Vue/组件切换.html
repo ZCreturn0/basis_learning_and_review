@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue"></script>
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <component :is="tpl"></component>
+            <button @click="switchComponent()">切换组件</button>
+        </div>
+        <script>
+            let template1 = Vue.extend({
+                template: `<div>
+                                <p>template1</p>
+                            </div>`
+            });
+            let template2 = Vue.extend({
+                template: `<div>
+                            <p>template2</p>
+                        </div>`
+            });
+            new Vue({
+                el: '#app',
+                data: {
+                    tpl: template1
+                },
+                methods: {
+                    switchComponent(){
+                        this.tpl = this.tpl == template1 ? template2 : template1;
+                    }
+                },
+                components:{
+                    template1, template2
+                }
+            });
+        </script>
+    </body>
+
+</html>
