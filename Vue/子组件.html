@@ -15,15 +15,40 @@
         </div>
         <script>
             let parent = Vue.extend({
-                template: `<div>
+                template:   `<div>
                                 <p>parent text</p>
-                                <son></son>
+                                <p>{{text}}</p>
+                                <hr>
+                                <son :toSon="text" :fromParent="childText"></son>
+                                <son2 :propA=30></son2>
                             </div>`,
+                data: ()=> ({
+                    text:'parent var',
+                    childText:'child text from parent'
+                }),
                 components:{
                     son:{
-                        template:`<div>
-                                    <p>son text</p>
-                                </div>`
+                        props:['toSon','fromParent'],
+                        template:   `<div>
+                                        <p>{{toSon}}</p>
+                                        <p>{{fromParent}}</p>
+                                        <p>son text</p>
+                                     </div>`
+                    },
+                    son2:{
+                        props:{
+                            propA:{
+                                type:[Number],
+                                required: true,
+                                default: 20,
+                                validator: (val) => {
+                                    return val > 18
+                                }
+                            }
+                        },
+                        template:   `<div>
+                                        <p>{{propA}}</p>
+                                    </div>`
                     }
                 }
             });
