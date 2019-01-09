@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue"></script>
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <parent></parent>
+        </div>
+        <script>
+            let parent = Vue.extend({
+                template: `<div>
+                                <p>parent text:{{parentText}}</p>
+                                <p>child text:{{childText}}</p>
+                                <hr>
+                                <son @data="getChildText"></son>
+                            </div>`,
+                data: () => ({
+                    parentText: 'parent var',
+                    childText: ''
+                }),
+                methods:{
+                    getChildText(data){
+                        this.childText = data;
+                    }
+                },
+                components: {
+                    son: {
+                        template: `<div>
+                                        <p>son text:{{sonText}}</p>
+                                        <button @click="sendData(sonText)">click</button>
+                                     </div>`,
+                        data: () => ({
+                            sonText:'son text'
+                        }),
+                        methods:{
+                            sendData(data){
+                                this.$emit('data',data);
+                            }
+                        }
+                    }
+                }
+            });
+            new Vue({
+                el: '#app',
+                data: {
+
+                },
+                methods: {
+
+                },
+                components: {
+                    parent
+                }
+            });
+        </script>
+    </body>
+
+</html>
