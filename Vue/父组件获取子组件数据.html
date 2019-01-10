@@ -34,6 +34,7 @@
                     son: {
                         template: `<div>
                                         <p>son text:{{sonText}}</p>
+                                        <input type="text" v-model="sonText">
                                         <button @click="sendData(sonText)">click</button>
                                      </div>`,
                         data: () => ({
@@ -42,6 +43,11 @@
                         methods:{
                             sendData(data){
                                 this.$emit('data',data);
+                            }
+                        },
+                        watch:{
+                            sonText(newVal,oldVal){
+                                this.sendData(newVal);
                             }
                         }
                     }
