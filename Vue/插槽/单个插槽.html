@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue"></script>
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <son>
+                <span>确定</span>
+            </son>
+            <son>
+                <span>导出</span>
+            </son>
+        </div>
+        <template id="son">
+            <button>
+                <slot></slot>
+            </button>
+        </template>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+
+                },
+                methods: {
+
+                },
+                components: {
+                    son:{
+                        template:'#son'
+                    }
+                }
+            });
+        </script>
+    </body>
+
+</html>
