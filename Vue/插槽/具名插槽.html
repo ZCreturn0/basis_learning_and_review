@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue"></script>
+        <title>Document</title>
+        <style>
+            .confirm{
+                border: 1px solid blue;
+            }
+            .cancel{
+                border: 1px solid #ccc;
+            }
+            .danger{
+                border: 1px solid red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <son>
+                <div slot="confirm"><span>确定</span></div>
+                <div slot="danger"><span>删除</span></div>
+                <div slot="cancel"><span>取消</span></div>
+            </son>
+        </div>
+        <template id="son">
+            <div>
+                <button class="confirm">
+                    <slot name="confirm"></slot>
+                </button>
+                <button class="cancel">
+                    <slot name="cancel"></slot>
+                </button>
+                <button class="danger">
+                    <slot name="danger"></slot>
+                </button>
+            </div>
+        </template>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+
+                },
+                methods: {
+
+                },
+                components: {
+                    son: {
+                        template: '#son'
+                    }
+                }
+            });
+        </script>
+    </body>
+
+</html>
