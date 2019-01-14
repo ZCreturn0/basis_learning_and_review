@@ -20,6 +20,7 @@
         <div id="app">
             <router-link to="/11/aa">主页</router-link>
             <router-link to="/about/12">关于</router-link>
+            <router-link to="/more?name=aaa&age=12">更多</router-link>
             <router-view></router-view>
         </div>
         <script>
@@ -28,6 +29,9 @@
             }
             let about = {
                 template: `<div>关于<p>id:{{$route.params.id}}</p></div>`
+            }
+            let more = {
+                template: `<div>更多<p>id:{{$route.query}}</p></div>`
             }
             let router = new VueRouter({
                 routes:[
@@ -38,6 +42,10 @@
                     {
                         path:'/about/:id',
                         component:about
+                    },
+                    {
+                        path: '/more',
+                        component: more
                     }
                 ]
             });
