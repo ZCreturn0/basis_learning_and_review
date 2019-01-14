@@ -18,25 +18,25 @@
 
     <body>
         <div id="app">
-            <router-link to="/">主页</router-link>
-            <router-link to="/about">关于</router-link>
+            <router-link to="/11/aa">主页</router-link>
+            <router-link to="/about/12">关于</router-link>
             <router-view></router-view>
         </div>
         <script>
             let home = {
-                template:`<div>主页</div>`
+                template:`<div>主页<p>id:{{$route.params.id}},name:{{$route.params.name}}</p></div>`
             }
             let about = {
-                template: `<div>关于</div>`
+                template: `<div>关于<p>id:{{$route.params.id}}</p></div>`
             }
             let router = new VueRouter({
                 routes:[
                     {
-                        path:'/',
+                        path:'/:id/:name',
                         component:home
                     },
                     {
-                        path:'/about',
+                        path:'/about/:id',
                         component:about
                     }
                 ]
