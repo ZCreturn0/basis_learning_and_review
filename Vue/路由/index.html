@@ -22,6 +22,7 @@
             <router-link to="/about/12">关于</router-link>
             <router-link to="/more?name=aaa&age=12">更多</router-link>
             <router-link to="/hash/#hash">hash</router-link>
+            <router-link to="/inner/son/12">嵌套路由</router-link>
             <router-view></router-view>
         </div>
         <script>
@@ -37,12 +38,11 @@
             let hash = {
                 template: `<div>hash:{{$route.hash}}</div>`
             }
+            let inner = {
+                template: `<div>inner:{{$route.params}}<router-view></router-view></div>`
+            }
             let router = new VueRouter({
                 routes:[
-                    {
-                        path:'/:id/:name',
-                        component:home
-                    },
                     {
                         path:'/about/:id',
                         component:about
@@ -54,7 +54,24 @@
                     {
                         path: '/hash',
                         component: hash
-                    }
+                    },
+                    {
+                        path: '/inner',
+                        component: inner,
+                        children: [
+                            {
+                                // son前面不加'/','/'表示跟目录
+                                path: 'son/:age',
+                                component: {
+                                    template: `<div>son id:{{$route.params.age}}</div>`
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        path: '/:id/:name',
+                        component: home
+                    },
                 ]
             });
             new Vue({
