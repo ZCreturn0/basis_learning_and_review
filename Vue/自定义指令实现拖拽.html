@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue"></script>
+        <title>Document</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .cube{
+                width: 200px;
+                height: 200px;
+                background: #ff8040;
+                text-align: center;
+                line-height: 200px;
+                position: absolute;
+                left: 10px;
+                top: 0;
+                cursor: move;
+                user-select: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <div class="cube" v-drag>{{val}}</div>
+        </div>
+        <script>
+            Vue.directive('drag', function (el, binding) {
+                let status = 0, l = 0, t = 0 ,cx = 0, cy = 0;
+                el.onmousedown = (e) => {
+                    l = e.clientX - e.offsetX;
+                    t = e.clientY - e.offsetY;
+                    cx = e.clientX;
+                    cy = e.clientY;
+                    status = 1;
+                }
+                el.onmousemove = (e) => {
+                    if(status == 1){
+                        el.style.left = e.clientX - cx + l + 'px';
+                        el.style.top = e.clientY - cy + t + 'px';
+                    }
+                }
+                el.onmouseup = (e) => {
+                    l = e.clientX - e.offsetX;
+                    t = e.clientY - e.offsetY;
+                    cx = e.clientX;
+                    cy = e.clientY;
+                    status = 0;
+                }
+                window.onmouseup = (e) => {
+                    status = 0;
+                }
+            });
+
+            new Vue({
+                el: '#app',
+                data: {
+                    val: "Hello World"
+                },
+                methods: {
+
+                }
+            });
+        </script>
+    </body>
+
+</html>
