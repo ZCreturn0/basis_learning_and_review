@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue"></script>
+        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <router-link to="/">主页</router-link>
+            <router-link to="/about">关于</router-link>
+            <router-view></router-view>
+        </div>
+        <script>
+            let home = {
+                template:`<div>主页</div>`
+            }
+            let about = {
+                template: `<div>关于</div>`
+            }
+            let router = new VueRouter({
+                routes:[
+                    {
+                        path:'/',
+                        component:home
+                    },
+                    {
+                        path:'/about',
+                        component:about
+                    }
+                ]
+            });
+            new Vue({
+                el: '#app',
+                data: {
+                    
+                },
+                methods: {
+
+                },
+                router:router
+            });
+        </script>
+    </body>
+
+</html>
