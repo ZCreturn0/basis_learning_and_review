@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue"></script>
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .cube{
+                width: 200px;
+                height: 200px;
+                background: #ccd60e;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            @keyframes move{
+                0%{
+                    left: 0;
+                    top: 0;
+                }
+                100%{
+                    left: 400px;
+                    top: 400px;
+                }
+            }
+            .move-enter-active{
+                animation: 1s move;
+            }
+            .move-leave-active{
+                animation: 1s move reverse;
+            }
+            button{
+                position: absolute;
+                top: 300px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <transition name="move">
+                <div v-show="show" class="cube"></div>
+            </transition>
+            <button @click="show = !show">toggle</button>
+        </div>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    val: "Hello World",
+                    show: true
+                },
+                methods: {
+
+                }
+            });
+        </script>
+    </body>
+
+</html>
