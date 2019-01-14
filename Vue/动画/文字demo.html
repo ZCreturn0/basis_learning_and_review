@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue"></script>
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .fade-enter, .fade-leave-to{
+                opacity: 0;
+            }
+            .fade-enter-active, .fade-leave-active{
+                transition: all 1s;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <transition name="fade">
+                <p v-show="show">{{val}}</p>
+            </transition>
+            <button @click="show = !show">toggle</button>
+        </div>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    val: "Hello World",
+                    show: true
+                },
+                methods: {
+
+                }
+            });
+        </script>
+    </body>
+
+</html>
