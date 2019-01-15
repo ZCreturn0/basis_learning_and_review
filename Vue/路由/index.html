@@ -13,6 +13,15 @@
                 margin: 0;
                 padding: 0;
             }
+            .nav{
+                border: 1px solid #80ff80;
+            }
+            .section{
+                border: 1px solid #1a2ee0;
+            }
+            .footer{
+                border: 1px solid #cde738;
+            }
         </style>
     </head>
 
@@ -23,10 +32,13 @@
             <router-link to="/more?name=aaa&age=12">更多</router-link>
             <router-link to="/hash/#hash">hash</router-link>
             <router-link to="/inner/son/12">嵌套路由</router-link>
+            <router-link to="/namedView">命名视图</router-link>
             <button @click="toIndex">主页</button>
             <button @click="goBack">后退</button>
             <button @click="about">关于(带参)</button>
             <router-view></router-view>
+            <router-view name="section"></router-view>
+            <router-view name="footer"></router-view>
         </div>
         <script>
             let home = {
@@ -43,6 +55,15 @@
             }
             let inner = {
                 template: `<div>inner:{{$route.params}}<router-view></router-view></div>`
+            }
+            let nav = {
+                template: `<nav class="nav">nav</nav>`
+            }
+            let section = {
+                template: `<section class="section">section</section>`
+            }
+            let footer = {
+                template: `<footer class="footer">footer</footer>`
             }
             let router = new VueRouter({
                 routes:[
@@ -72,6 +93,14 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        path: '/namedView',
+                        components: {
+                            default: nav,
+                            section,
+                            footer
+                        }
                     },
                     {
                         path: '/:id/:name',
