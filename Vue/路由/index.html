@@ -19,7 +19,7 @@
     <body>
         <div id="app">
             <router-link to="/11/aa">主页</router-link>
-            <router-link to="/about/12">关于</router-link>
+            <router-link :to="{name:'about',params:{name:'ccc',age:26}}">关于(命名路由)</router-link>
             <router-link to="/more?name=aaa&age=12">更多</router-link>
             <router-link to="/hash/#hash">hash</router-link>
             <router-link to="/inner/son/12">嵌套路由</router-link>
@@ -33,7 +33,7 @@
                 template:`<div>主页<p>id:{{$route.params.id}},name:{{$route.params.name}}</p></div>`
             }
             let about = {
-                template: `<div>关于<p>id:{{$route.params.id}}</p></div>`
+                template: `<div>关于<p>{{$route.params}}</p></div>`
             }
             let more = {
                 template: `<div>更多<p>id:{{$route.query}}</p></div>`
@@ -47,7 +47,7 @@
             let router = new VueRouter({
                 routes:[
                     {
-                        path:'/about/:id',
+                        path:'/about',
                         name:'about',
                         component:about
                     },
@@ -92,7 +92,7 @@
                         this.$router.go(-1);
                     },
                     about(){
-                        this.$router.push('/about/98665444');
+                        this.$router.push({ name: 'about', params: { name: 'vvv', age: 90 } });
                     }
                 },
                 router:router,
