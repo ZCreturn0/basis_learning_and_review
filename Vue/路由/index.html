@@ -36,6 +36,8 @@
             <button @click="toIndex">主页</button>
             <button @click="goBack">后退</button>
             <button @click="about">关于(带参)</button>
+            <button @click="redirectToIndex">重定向到主页</button>
+            <button @click="moreAlias">更多(别名)</button>
             <router-view></router-view>
             <router-view name="section"></router-view>
             <router-view name="footer"></router-view>
@@ -75,7 +77,9 @@
                     {
                         path: '/more',
                         name:'more',
-                        component: more
+                        component: more,
+                        // 别名
+                        alias: '/moreAlias'
                     },
                     {
                         path: '/hash',
@@ -103,6 +107,10 @@
                         }
                     },
                     {
+                        path: '/myHome',
+                        redirect: '/111/aaa'
+                    },
+                    {
                         path: '/:id/:name',
                         component: home
                     },
@@ -122,6 +130,12 @@
                     },
                     about(){
                         this.$router.push({ name: 'about', params: { name: 'vvv', age: 90 } });
+                    },
+                    redirectToIndex(){
+                        this.$router.push('myHome');
+                    },
+                    moreAlias(){
+                        this.$router.push({path:'/moreAlias?name=aaa&age=90'});
                     }
                 },
                 router:router,
