@@ -1,0 +1,11 @@
+可以在任何组件内通过 this.$router 访问路由器，也可以通过 this.$route 访问当前路由
+
+this.$router.push   如果提供了 path，params 会被忽略
+
+“重定向”的意思是，当用户访问 /a时，URL 将会被替换成 /b，然后匹配路由为 /b
+/a 的别名是 /b，意味着，当用户访问 /b 时，URL 会保持为 /b，但是路由匹配则为 /a，就像用户访问 /a 一样。
+
+next(): 进行管道中的下一个钩子
+next(false): 中断当前的导航
+next('/') 或者 next({ path: '/' }): 跳转到一个不同的地址
+next(error): (2.4.0+) 如果传入 next 的参数是一个 Error 实例，则导航会被终止且该错误会被传递给 router.onError() 注册过的回调
