@@ -83,7 +83,12 @@
                     },
                     {
                         path: '/hash',
-                        component: hash
+                        component: hash,
+                        // 独享守卫
+                        beforeEnter: (to,from,next) => {
+                            console.log(111);
+                            next();
+                        }
                     },
                     {
                         path: '/inner',
