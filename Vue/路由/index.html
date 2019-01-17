@@ -56,7 +56,12 @@
                 template: `<div>hash:{{$route.hash}}</div>`
             }
             let inner = {
-                template: `<div>inner:{{$route.params}}<router-view></router-view></div>`
+                template: `<div>inner:{{$route.params}}<router-view></router-view></div>`,
+                // 组件内守卫
+                beforeRouteEnter: (to, from, next) => {
+                    console.log('组件内守卫');
+                    next();
+                }
             }
             let nav = {
                 template: `<nav class="nav">nav</nav>`
@@ -86,7 +91,7 @@
                         component: hash,
                         // 独享守卫
                         beforeEnter: (to,from,next) => {
-                            console.log(111);
+                            console.log('独享守卫');
                             next();
                         }
                     },
