@@ -4,3 +4,13 @@ h2{
 h3{
     background: #18f20d;
 }
+#a{
+    width: 100px;
+    height: 100px;
+    background: url('img/a.png') no-repeat;
+}
+#b{
+    width: 100px;
+    height: 100px;
+    background: url('img/b.png') no-repeat;
+}
