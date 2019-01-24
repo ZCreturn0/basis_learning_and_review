@@ -16,6 +16,14 @@ module.exports = {
                     'style-loader',
                     'css-loader'
                 ]
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 8192,
+                    name: path.posix.join('','img/[name].[hash:7].[ext]')
+                }
             }
         ]
     },
