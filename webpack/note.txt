@@ -12,3 +12,5 @@ webpack --display-modules #默认情况下 node_modules 下的模块会被隐藏
 npm install webpack-dev-server -D
 # 运行
 npx webpack-dev-server --config ./webpack.config.js
+
+每一个 Loader 都可以通过 URL querystring 的方式传入参数，例如 css-loader?minimize 中的 minimize 告诉 css-loader 要开启 CSS 压缩。
