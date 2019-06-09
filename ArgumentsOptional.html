@@ -15,7 +15,12 @@
                 }
                 else{
                     return function(y){
-                        return args[0]+y;
+                        if(typeof y != 'number'){
+                            return undefined;
+                        }
+                        else{
+                            return args[0]+y;
+                        }
                     }
                 }
             }
