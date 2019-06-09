@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue"></script>
+        <title>Document</title>
+        <style>
+            .text-red{
+                color: red;
+            }
+            .text-green{
+                color: green;
+            }
+            .bold{
+                font-weight: bold;
+            }
+            .italic{
+                font-style: italic;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <!-- v-model :双向绑定    :value :相当于赋值 -->
+            <input type="text" v-model="text" v-show="show">
+            <input :value="text" type="button" @click="sayText()">
+            <input value="显示/隐藏" type="button" @click="toggleShow()">
+            <p v-if="text == 'Hello World'">666</p>
+            <ul>
+                <li v-for="(val,key) in list">key:{{key}},val:{{val}}</li>
+            </ul>
+            <p :class="[textColor,{bold:boldStatus},{italic:italicStatus}]">{{text}}</p>
+            <input value="红/绿" type="button" @click="toggleColor()">
+            <input value="加粗" type="button" @click="toggleBold()">
+            <!-- v-html不安全,不建议使用 -->
+            <div v-html="html"></div>
+            <div v-text="html"></div>
+            <div>{{text | LowerCase}}</div>
+            <div>{{text | LowerCase(html)}}</div>
+        </div>
+        <script>
+            // 自定义按键
+            Vue.config.keyCodes = {
+                'test-me': 38,
+                'test':[22,33]
+            }
+            new Vue({
+                el: '#app',
+                data: {
+                    text: 'Hello World',
+                    show: true,
+                    list:[{name:'aaa',age:12}, { name: 'bbb', age: 13 }, { name: 'ccc', age: 14 }],
+                    textColor:'text-red',
+                    boldStatus:false,
+                    italicStatus:false,
+                    html:'<h3>aaaaaaaaaa</h3>'
+                },
+                methods: {
+                    sayText(){
+                        alert(this.text);
+                    },
+                    toggleShow(){
+                        this.show = !this.show;
+                    },
+                    toggleColor(){
+                        this.textColor = this.textColor == 'text-red' ? 'text-green' : 'text-red';
+                    },
+                    toggleBold(){
+                        this.boldStatus = !this.boldStatus;
+                    }
+                },
+                watch:{
+                    text(newVal,oldVal){
+                        console.log('new:'+ newVal);
+                        console.log('old:' + oldVal);
+                    }
+                },
+                filters:{
+                    LowerCase(text, html){
+                        return text.toLowerCase() + html;
+                    }
+                }
+            });
+        </script>
+    </body>
+
+</html>

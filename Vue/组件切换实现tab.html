@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue"></script>
+        <title>Document</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #container{
+                width: 200px;
+                height: 300px;
+                border: 1px solid #ccc;
+                margin: 40px auto;
+            }
+            .tab-switch{
+                width: 25%;
+                height: 25px;
+                text-align: center;
+                display: inline-block;
+                background: #ccc;
+                cursor: pointer;
+            }
+            .tab{
+                text-align: center;
+                line-height: 150px;
+                height: calc(100% - 25px);
+            }
+            .tabSelected{
+                background: #b1c0f7;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <div id="container">
+                <div v-for="(val,key) in tabs" class="tab-switch" :class="{tabSelected:selected == val.name}" @click="switchTab(val)">{{val.name}}</div>
+                <component :is="tpl"></component>
+            </div>
+        </div>
+        <script>
+            let tab0 = Vue.extend({
+                template: `<div class="tab"><p>tab0</p></div>`
+            });
+            let tab1 = Vue.extend({
+                template: `<div class="tab"><p>tab1</p></div>`
+            });
+            let tab2 = Vue.extend({
+                template: `<div class="tab"><p>tab2</p></div>`
+            });
+            let tab3 = Vue.extend({
+                template: `<div class="tab"><p>tab3</p></div>`
+            });
+            new Vue({
+                el: '#app',
+                data: {
+                    tpl: tab0,
+                    selected:'tab0',
+                    tabs:[{name:'tab0',tpl: tab0}, { name: 'tab1', tpl: tab1 }, { name: 'tab2', tpl: tab2 }, { name: 'tab3', tpl: tab3 }]
+                },
+                methods: {
+                    switchTab(val){
+                        this.selected = val.name;
+                        this.tpl = val.tpl;
+                    }
+                },
+                components: {
+                    tab0, tab1, tab2, tab3
+                }
+            });
+        </script>
+    </body>
+
+</html>

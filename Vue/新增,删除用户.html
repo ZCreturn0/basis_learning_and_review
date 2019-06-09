@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue"></script>
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <user-operation></user-operation>
+        </div>
+        <script>
+            let userOperation = Vue.extend({
+                template:   `<div>
+                                姓名:<input type="text" v-model="name">
+                                年龄:<input type="number" v-model="age">
+                                <button @click="addUser()">添加</button>
+                                <ul>
+                                    <li v-for="(val,key) in user">
+                                        ID:{{key}}  姓名:{{val.name}}  年龄:{{val.age}} <button @click="deleteUser(key)">删除</button>
+                                    </li>
+                                    <li v-show="user.length == 0">暂无数据</li>
+                                </ul>
+                            </div>`,
+                data: () => ({
+                    name: '',
+                    age: '',
+                    user: [{ name: 'aaa', age: 12 }]
+                }),
+                methods: {
+                    addUser() {
+                        this.user.push({ name: this.name, age: this.age - 0 });
+                    },
+                    deleteUser(index){
+                        this.user.splice(index,1);
+                    }
+                },
+            });
+            new Vue({
+                el: '#app',
+                data: {
+                    
+                },
+                methods: {
+                    
+                },
+                components:{
+                    userOperation
+                }
+            });
+        </script>
+    </body>
+
+</html>

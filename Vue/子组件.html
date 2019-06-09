@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue"></script>
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <parent></parent>
+        </div>
+        <script>
+            let parent = Vue.extend({
+                template:   `<div>
+                                <p>parent text</p>
+                                <p>{{text}}</p>
+                                <hr>
+                                <son :toSon="text" :fromParent="childText"></son>
+                                <son2 :propA=30></son2>
+                            </div>`,
+                data: ()=> ({
+                    text:'parent var',
+                    childText:'child text from parent'
+                }),
+                components:{
+                    son:{
+                        props:['toSon','fromParent'],
+                        template:   `<div>
+                                        <p>{{toSon}}</p>
+                                        <p>{{fromParent}}</p>
+                                        <p>son text</p>
+                                     </div>`
+                    },
+                    son2:{
+                        props:{
+                            propA:{
+                                type:[Number],
+                                required: true,
+                                default: 20,
+                                validator: (val) => {
+                                    return val > 18
+                                }
+                            }
+                        },
+                        template:   `<div>
+                                        <p>{{propA}}</p>
+                                    </div>`
+                    }
+                }
+            });
+            new Vue({
+                el: '#app',
+                data: {
+                    
+                },
+                methods: {
+                    
+                },
+                components: {
+                    parent
+                }
+            });
+        </script>
+    </body>
+
+</html>

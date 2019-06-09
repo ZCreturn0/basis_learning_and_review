@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue"></script>
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <!-- 父组件提供html结构及样式 -->
+            <son>
+                <template slot-scope="user">
+                    {{user.list}}
+                    {{user.data}}
+                </template>
+            </son>
+            <son>
+                <template slot-scope="user">
+                    <ul>
+                        <li v-for="item in user.list">{{item}}</li>
+                    </ul>
+                </template>
+            </son>
+        </div>
+        <script>
+            let son = Vue.extend({
+                // 子组件绑定子组件数据
+                template:`
+                            <div>
+                                <slot :list="list" :data="data"></slot>
+                            </div>
+                `,
+                data:() => ({
+                    list: ['aaa', 'bbb', 'ccc', 'ddd', 'eee'],
+                    data:[12,12,13,14,13]
+                })
+            });
+            new Vue({
+                el: '#app',
+                data: {
+                    
+                },
+                methods: {
+
+                },
+                components: {
+                    son
+                }
+            });
+        </script>
+    </body>
+
+</html>

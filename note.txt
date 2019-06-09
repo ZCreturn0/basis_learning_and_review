@@ -5,7 +5,7 @@ import  导入需要的模块
 splice()会改变原数组,返回截取的数组
 arr.splice(2,1,'aaa')       把'aaa'插入到index2后面1个位置
 
-slice()截取不会改变原数组,[start,end)
+slice()截取不会改变原数组,[start,end),返回截取的数组
 
 prototype属性所有实例共享
 

@@ -10,15 +10,13 @@
 
     <body>
         <script>
-            function sumAll(arr) {
-                arr.sort((a,b) => a-b);
-                let sum = 0;
-                for (let i = arr[0]; i <= arr[1]; i++) {
-                    sum += i;
-                }
-                return sum;
+            function palindrome(str) {
+                let words = str.replace(/[^A-Za-z0-9]/g,'');
+                words = words.toLowerCase();
+                let reverseWords = words.split('').reverse().join('');
+                return words == reverseWords;
             }
-            console.log(sumAll([5, 10]))
+            palindrome("A man, a plan, a canal. Panama");
         </script>
     </body>
 

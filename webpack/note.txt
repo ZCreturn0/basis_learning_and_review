@@ -1,0 +1,16 @@
+Webpack在执行的时候，除了在命令行传入参数，还可以通过指定的配置文件来执行。默认情况下，会搜索当前目录的webpack.config.js文件，这个文件是一个 node.js 模块，返回一个 json 格式的配置信息对象，或者通过 --config 选项来指定配置文件。
+
+webpack #最基本的启动webpack命令
+webpack -w #提供watch方法，实时进行打包更新
+webpack -p #对打包后的文件进行压缩
+webpack -d #提供SourceMaps，方便调试
+webpack --colors #输出结果带彩色，比如：会用红色显示耗时较长的步骤
+webpack --profile #输出性能数据，可以看到每一步的耗时
+webpack --display-modules #默认情况下 node_modules 下的模块会被隐藏，加上这个参数可以显示这些被隐藏的模块
+
+# 安装
+npm install webpack-dev-server -D
+# 运行
+npx webpack-dev-server --config ./webpack.config.js
+
+每一个 Loader 都可以通过 URL querystring 的方式传入参数，例如 css-loader?minimize 中的 minimize 告诉 css-loader 要开启 CSS 压缩。

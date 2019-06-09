@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue"></script>
+        <title>Document</title>
+        <style>
+            .text-red{
+                color: red;
+            }
+            .text-green{
+                color: green;
+            }
+            .bold{
+                font-weight: bold;
+            }
+            .italic{
+                font-style: italic;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <datas></datas>
+            <datas></datas>
+            <datas></datas>
+        </div>
+        <script>
+            // 全局,所有组件共享
+            let val = {
+                num:0
+            }
+            Vue.component('datas', {
+                template:  `<div>
+                                <button @click="add()">{{num}}</button>
+                                <button @click="add()">{{num}}</button>
+                                <button @click="add()">{{num}}</button>
+                                <button @click="add()">{{num}}</button>
+                            </div>`,
+                data:() => (val),
+                methods:{
+                    add(){
+                        this.num++;
+                    }
+                }
+            });
+
+            new Vue({
+                el: '#app',
+                data: {
+
+                },
+                methods: {
+
+                },
+                components: {
+                    
+                }
+            });
+        </script>
+    </body>
+
+</html>
